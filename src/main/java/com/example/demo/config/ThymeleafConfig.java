@@ -20,8 +20,12 @@ public class ThymeleafConfig {
         return defaultTemplateResolver;
     }
 
-    @RequiredArgsConstructor
-    @Getter
+//    @RequiredArgsConstructor
+//    @Getter
+//    @ConfigurationProperties("spring.thymeleaf3")
+//    public static class Thymeleaf3Properties{
+//            private final boolean decoupledLogic;
+//    }
     @ConfigurationProperties("spring.thymeleaf3")
-    public record Thymeleaf3Properties(boolean decoupledLogic) {}
+    public record Thymeleaf3Properties (boolean decoupledLogic){}
 }
