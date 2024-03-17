@@ -1,7 +1,5 @@
 package com.example.demo.dto;
 
-import java.io.Serializable;
-
 public record ArticleUpdateDto(
         String title,
         String content,
