@@ -5,9 +5,12 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Objects;
+
 @Getter
 @ToString(callSuper = true)
 @Table(indexes = {
+        @Index(columnList = "userId", unique = true),
         @Index(columnList = "email", unique = true),
         @Index(columnList = "createdAt"),
         @Index(columnList = "createdBy")
@@ -38,13 +41,16 @@ public class UserAccount extends AuditingFields{
     public static UserAccount of(String userId, String userPassword, String email, String nickname, String memo) {
         return new UserAccount(userId, userPassword, email, nickname, memo);
     }
+
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof UserAccount that)) return false;
+        return id != null && Objects.equals(id, that.id);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
