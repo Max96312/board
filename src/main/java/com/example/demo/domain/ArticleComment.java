@@ -27,7 +27,7 @@ public class ArticleComment extends AuditingFields{
     @Setter @ManyToOne(optional = false) private UserAccount userAccount;
 
     @Setter
-    @Column(nullable = false)
+    @Column(nullable = false, length = 500)
     private String content;
 
     protected ArticleComment() {}
@@ -45,9 +45,8 @@ public class ArticleComment extends AuditingFields{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ArticleComment that = (ArticleComment) o;
-        return Objects.equals(id, that.id);
+        if (!(o instanceof ArticleComment that)) return false;
+        return id != null && Objects.equals(id, that.id);
     }
 
     @Override
