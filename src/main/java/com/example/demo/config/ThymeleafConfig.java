@@ -1,9 +1,6 @@
 package com.example.demo.config;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.bind.ConstructorBinding;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
@@ -19,13 +16,6 @@ public class ThymeleafConfig {
 
         return defaultTemplateResolver;
     }
-
-//    @RequiredArgsConstructor
-//    @Getter
-//    @ConfigurationProperties("spring.thymeleaf3")
-//    public static class Thymeleaf3Properties{
-//            private final boolean decoupledLogic;
-//    }
     @ConfigurationProperties("spring.thymeleaf3")
     public record Thymeleaf3Properties (boolean decoupledLogic){}
 }
