@@ -1,8 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.type.SearchType;
-import com.example.demo.dto.ArticleResponse;
-import com.example.demo.dto.ArticleWithCommentsResponse;
+import com.example.demo.dto.response.ArticleResponse;
+import com.example.demo.dto.response.ArticleWithCommentsResponse;
 import com.example.demo.service.ArticleService;
 import com.example.demo.service.PaginationService;
 import lombok.RequiredArgsConstructor;
@@ -46,6 +46,7 @@ public class ArticleController {
 
         map.addAttribute("articles", articles);
         map.addAttribute("paginationBarNumbers", barNumbers);
+        map.addAttribute("searchTypes", SearchType.values());
 
         return "articles/index";
     }
@@ -53,8 +54,10 @@ public class ArticleController {
     @GetMapping("/{articleId}")
     public String article(@PathVariable Long articleId, ModelMap map){
         ArticleWithCommentsResponse article = ArticleWithCommentsResponse.from(articleService.getArticle(articleId));
+
         map.addAttribute("article", article);
-        map.addAttribute("articleComments", article.articleCommentsResponses());
+        map.addAttribute("articleComments", article.articleCommentsResponse());
+        map.addAttribute("totalCount", articleService.getArticleCount());
 
         return "articles/detail";
     }

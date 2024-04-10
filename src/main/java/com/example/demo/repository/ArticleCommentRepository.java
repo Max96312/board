@@ -18,11 +18,12 @@ public interface ArticleCommentRepository extends
         QuerydslPredicateExecutor<ArticleComment>,
         QuerydslBinderCustomizer<QArticleComment>
 {
+    // ArticleId로 조회한 ArticleComments
     List<ArticleComment> findByArticle_Id(Long articleId);
 
     @Override
     default void customize(QuerydslBindings bindings, QArticleComment root){
-        bindings.excludeUnlistedProperties(false);
+        bindings.excludeUnlistedProperties(true);
         bindings.including(root.content, root.createdAt, root.createdBy);
         bindings.bind(root.content).first(StringExpression::containsIgnoreCase);
         bindings.bind(root.createdAt).first(DateTimeExpression::eq);

@@ -1,5 +1,8 @@
-package com.example.demo.dto;
+package com.example.demo.dto.response;
 
+import com.example.demo.dto.ArticleCommentDto;
+
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 public record ArticleCommentResponse(
@@ -8,7 +11,7 @@ public record ArticleCommentResponse(
         LocalDateTime createdAt,
         String email,
         String nickname
-) {
+) implements Serializable {
     public static ArticleCommentResponse of(Long id, String content, LocalDateTime createdAt, String email, String nickname) {
         return new ArticleCommentResponse(id, content, createdAt, email, nickname);
     }
