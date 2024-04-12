@@ -17,7 +17,6 @@
 + 검색 기능
 ![image](https://github.com/Max96312/board/assets/133615478/bead5eb0-7519-4a1a-a213-0f19d58d5cd9)
 
-
 # 개발 환경
 + Intellij IDEA Ultimate 2023.3.4
 + Java 17
@@ -40,3 +39,5 @@
 + H2 Database
 + MySQL Driver
 + QueryDSL
+
+**테스트 데이터는 https://www.mockaroo.com/를 사용하여 추가하였습니다.**
