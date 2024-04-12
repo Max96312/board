@@ -11,9 +11,12 @@
 
 # 기능 안내
 + 게시글 CRUD
-+ 게시글 페이징 기능
++ 게시글 페이징 기능 & 게시글 정렬 기능
++ ![image](https://github.com/Max96312/board/assets/133615478/a349bdd7-6c00-493c-a108-78429f5564db)
 + 덧글 CRD
 + 검색 기능
++ ![image](https://github.com/Max96312/board/assets/133615478/bead5eb0-7519-4a1a-a213-0f19d58d5cd9)
+
 
 # 개발 환경
 + Intellij IDEA Ultimate 2023.3.4
